@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.welcomeloan.mobile"
+    android:versionCode="41"
+    android:versionName="1.8.9" >
+    
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="23"
+        tools:overrideLibrary="com.lenddo.data" />
+    
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!-- 네트워크 통신 -->
+    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+    <!-- 시스템 도구, 실행 중인 응용프로그램 검색 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- SD카드 읽기/쓰기 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+	<!-- GCM 관련 퍼미션 -->
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<permission android:name="com.welcomeloan.mobile.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+	<uses-permission android:name="com.welcomeloan.mobile.permission.C2D_MESSAGE" />
+	
+	<!-- lenddo permission -->
+	<!--<uses-permission  android:name="android.permission.READ_SMS"/>-->
+	<!--<uses-permission  android:name="android.permission.READ_CONTACTS"/>-->
+	<!--<uses-permission  android:name="android.permission.READ_CALENDAR"/>-->
+	<!--<uses-permission  android:name="android.permission.READ_CALL_LOG"/>-->
+	<!--<uses-permission  android:name="android.permission.ACCESS_COARSE_LOCATION"/>-->
+	<!--<uses-permission  android:name="android.permission.ACCESS_FINE_LOCATION"/>-->
+	<!--<uses-permission  android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>-->
+	<!--<uses-permission  android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>-->
+	
+    <application
+        android:name="com.cabsoft.rainbowbr.activity.BaseApplication"
+        android:allowBackup="true"
+        android:largeHeap="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.cabsoft.rainbowbr.activity.CabWebActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="standard">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="cabwcloan"/>
+            </intent-filter>
+            
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="welcome"
+                    android:scheme="lpfront" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- 앱설치시 링크프라이스 LPINFO 수신-->
+         <receiver
+            android:name="com.linkprice.app_interlock.InstallReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        
+        
+        <!-- Droid-X 관련 설정 시작 -->
+        <!-- Droid-X Intro 화면 Activity -->
+        <activity
+            android:name="net.nshc.droidx3.view.DialogIntro"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" />
+        <!-- Notification으로 서비스 정보 화면 Activity -->
+        <activity
+            android:name="net.nshc.droidx3.view.ActivityNotificationServiceInfo"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <!-- Notification으로 서비스 종료 화면 Activity -->
+        <activity
+            android:name="net.nshc.droidx3.view.DialogNotificationServiceStop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" />
+        <!-- 설치된 App 삭제 화면 Activity -->
+        <activity
+            android:name="net.nshc.droidx3.view.DialogUnInstall"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" />
+        <!-- 설치가능한 파일 삭제화면 Activity -->
+        <activity
+            android:name="net.nshc.droidx3.view.DialogRemoveFile"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" />
+        <!-- (예제)리스트 형으로 악성앱 탐지 결과를 보여주도록 하는 화면 Activity -->
+        <activity
+            android:name="com.cabsoft.rainbowbr.components.droidx.DroidXServiceListDel"
+            android:configChanges="orientation|screenSize"
+            android:theme="@android:style/Theme.NoTitleBar" />
+
+        <service
+            android:name="net.nshc.droidx3.library.com.welcomeloan.mobile.DroidXLibraryService"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="net.nshc.android.droidx_library" />
+            </intent-filter>
+        </service>
+
+        <!-- Droid-X를 호출한 App 동작 여부 검사 -->
+        <receiver android:name="net.nshc.droidx3.receiver.ParentCheckReceiver" >
+        </receiver>
+        <!-- Droid-X 관련 설정 끝 -->
+        
+        <!-- nFilter Start-->
+        <activity
+            android:name="com.nshc.nfilter.NFilterChar"
+            android:configChanges="keyboardHidden"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.nshc.nfilter.NFilterNum"
+            android:configChanges="keyboardHidden"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.nshc.nfilter.NFilterSerialNum"
+            android:configChanges="keyboardHidden"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent" />
+        <!-- nFilter End -->
+        
+        <!-- GCM Receiver -->
+        <receiver
+            android:name="com.cabsoft.rainbowbr.components.notification.CabGcmBroadcastReciever"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.welcomeloan.mobile" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.cabsoft.rainbowbr.components.notification.CabGcmIntentService" />
+        <!--<service android:name="com.welcome.DataCollectPlugin.MainProcess"></service>-->
+
+        <meta-data android:name="com.google.android.gms.version"
+           android:value="@integer/google_play_services_version" />
+
+        <!--<receiver-->
+			<!--android:name="com.callgate.launcher.FccReceiver"-->
+			<!--android:permission="com.google.android.c2dm.permission.SEND">-->
+            <!---->
+			<!--<intent-filter>-->
+				<!--<action android:name="com.google.android.c2dm.intent.RECEIVE"/>-->
+				<!--<category android:name="com.welcomeloan.mobile"/>-->
+			<!--</intent-filter>-->
+			<!--<intent-filter>-->
+				<!--<action android:name="com.google.android.c2dm.intent.REGISTRATION"/>-->
+				<!--<category android:name="com.welcomeloan.mobile"/>-->
+			<!--</intent-filter>-->
+		<!--</receiver>-->
+		<!--<service android:name="com.callgate.launcher.FCCIntentService"/>-->
+
+        
+        <!-- 페이스 신분증 인식 카메라 호출 -->
+        <activity
+            android:name="com.pacesystem.paceidcardrecog.PreviewActivity"
+            android:label="CameraPreview"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="landscape"/>
+        
+        <activity
+            android:name="com.pacesystem.paceidcardrecog.ManualDetectionActivity"
+            android:label="ManualDetection"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="landscape"/>
+        
+
+        <!-- Launcher Service Activity 설정 -->
+        <!--<activity android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.callgate.launcher.view.LauncherView"></activity>-->
+        <!--<activity android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.callgate.launcher.view.LauncherWebView"></activity>-->
+        <!--<activity android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.callgate.launcher.fcc.FCCServicePopUp"></activity>-->
+        <!--<receiver android:name="com.callgate.launcher.NotificationReceiver"></receiver>-->
+        <!--<service android:name="com.callgate.launcher.FCCIntentService" />-->
+        <!-- Launcher Service Activity 설정 -->
+        
+        
+    </application>
+
+</manifest>

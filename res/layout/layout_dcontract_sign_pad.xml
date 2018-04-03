@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BF000000" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" >
+
+        <RelativeLayout
+            android:id="@+id/lay_dcontract_sign_pad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <RelativeLayout
+                android:id="@+id/lay_dcontract_header_area"
+                android:layout_width="match_parent"
+                android:layout_height="135dp" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_dcontract_popup" />
+
+                <TextView
+                    android:id="@+id/txv_dcontract_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:gravity="center"
+                    android:text="한도금액"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view_dcontract_header_spliter1"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_above="@+id/view_dcontract_content_area"
+                    android:background="#FFED342E" />
+
+                <View
+                    android:id="@+id/view_dcontract_content_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#FFFFEDE4" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:layout_below="@+id/view_dcontract_header_spliter1"
+                    android:orientation="vertical"
+                    android:gravity="center" >
+
+                    <TextView
+                        android:id="@+id/txv_dcontract_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/view_dcontract_header_spliter1"
+                        android:gravity="center"
+                        android:text="삼백오십만원정"
+                        android:textColor="#FFFF4200"
+                        android:textSize="27sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txv_dcontract_description"
+                        android:layout_marginTop="4dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txt_dcontract_content"
+                        android:gravity="center"
+                        android:text="위의 내용을 아래 영역에 자필로 따라쓰세요."
+                        android:textColor="#FF333333"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#FFFDE3D5" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/lay_sign_area"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_below="@+id/lay_dcontract_header_area"
+                android:clipChildren="false" >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ffffffff" />
+
+                <com.cabsoft.rainbowbr.components.draftcontract.CabDContractSignAreaView
+                    android:id="@+id/view_dcontract_sign_pad"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="20dp"
+                    android:background="#ffffffff" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/lay_dcontract_slider_area"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:layout_below="@+id/lay_sign_area"
+                android:clipChildren="false" >
+
+                <RelativeLayout
+                    android:id="@+id/lay_dcontract_slider_touch_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:clipChildren="false" >
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:background="#FF000000" />
+
+                    <View
+                        android:id="@+id/view_dcontract_slider_bar"
+                        android:layout_width="25dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginBottom="5dp"
+                        android:background="#FFECF0F1" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_dcontract_indicator" />
+
+                    <ImageView
+                        android:id="@+id/imgv_dcontract_slider_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/btn_dcontract_indicator_controller" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lay_dcontract_sign_pad"
+            android:layout_marginTop="20dp" >
+
+            <ImageButton
+                android:id="@+id/btn_dcontract_sign_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/btn_dcontract_sign_clear" />
+
+            <ImageButton
+                android:id="@+id/btn_dcontract_sign_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/btn_dcontract_sign_confirm"
+                android:background="@drawable/btn_dcontract_sign_cancel" />
+
+            <ImageButton
+                android:id="@+id/btn_dcontract_sign_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/btn_dcontract_sign_confirm" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

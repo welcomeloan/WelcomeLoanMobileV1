@@ -1,0 +1,126 @@
+# To enable ProGuard in your project, edit project.properties
+# to define the proguard.config property as described in that file.
+#
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in ${sdk.dir}/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the ProGuard
+# include property in project.properties.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# Add any project specific keep options here:
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+#library 패스 설정
+-injars bin/classes
+-injars libs
+-outjars bin/classes-processed.jar
+
+#progaurd 설정
+-dontoptimize
+-dontpreverify
+-dontshrink
+-repackageclasses ''
+-allowaccessmodification
+-keepattributes *Annotation*
+
+#intech inisafe 난독화 제외
+-dontwarn com.initech.**
+-keep class com.initech.** { *; }
+
+#nshc 라이브러리 난독화 제외
+-dontwarn com.nshc.**
+-keep class com.nshc.** { *; }
+-dontwarn net.nshc.**
+-keep class net.nshc.** { *; }
+
+-keep class com.pacesystem.lib.** { *; }
+
+-dontwarn com.kwic.saib.**
+-keep class com.kwic.saib.** { *; }
+
+-dontwarn org.spongycastle.**
+-keep class org.spongycastle.** { *; }
+
+-dontwarn com.google.android.gms.**
+-keep class com.google.android.gms.** { *; }
+
+-dontwarn com.callgate.launcher.**
+-keep class com.callgate.launcher.** { *; }
+
+#안드로이드 기본 라이브러리들의 상속이 난독화 되면 틀어지므로 예외처리 해준다.
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class * extends android.vending.licensing.ILicensingService
+
+-keep public class * extends android.view.View {
+	public <init>(android.content.Context);
+	public <init>(android.content.Context, android.util.AttributeSet);
+	public <init>(android.content.Context, android.util.AttributeSet, int);
+	public void set*(...);
+}
+
+-keepclasseswithmembers class * {
+	public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+	public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers class * extends android.content.Context {
+	public void *(android.view.View);
+	public void *(android.view.MenuItem);
+}
+
+-keep class * implements android.os.Parcelable{
+	static ** CREATOR;
+}
+
+-keepclassmembers class **.R$* {
+	public static <fields>;
+}
+
+-keepclassmembers class * {
+	@android.webkit.JavascriptInterface <methods>;
+}
+
+-keepclasseswithmembernames class * {
+	native <methods>;
+}
+
+#BankX 각 컴포넌트들의 리플렉션 되는 메소드들의 경우 난독화 되면 리플렉션이 깨지므로 유지하도록 잡아준다.
+-keepclassmembers class com.cabsoft.rainbowbr.components.**{
+	public void * (java.util.HashMap, android.webkit.WebView);
+}
+
+#GCM관련 ProGuard 예외처리.
+-keep class * extends java.util.ListResourceBundle {
+	protected Object[][] getContents();
+}
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+	public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+	@com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+	public static final *** CREATOR;
+}

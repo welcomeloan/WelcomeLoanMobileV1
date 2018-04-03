@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+body#main{background:#fff;}
+
+/* header */
+body#main #header {position: relative;height:19px;text-align:left;border-bottom:2px solid #e72533;letter-spacing:-1px;background: #f8f8f8;}
+body#main #header > h1 {position:absolute;top:5px;right:9px;display:inline-block; width:21px; background:url(../images/common/logo.png) no-repeat; background-size:100%; height:26px;}
+body#main #header p{margin-left:8px;font-size:8px;line-height:19px; }
+
+.main-tit{display:block;font:14px/23px nanumgothic_bold!important;color:#454545;background:url(../images/main/bg_main_v.png) no-repeat right bottom; background-size:98px auto; padding-top:15px ;height:85px;margin:10px 20px 10px;letter-spacing:-1px; }
+.main-tit span{font-size:16px;}
+.main-tit strong{color: #e21738}
+
+/* contents 바로가기 */
+body#main #conMenuList {width:auto;margin:0 auto;}
+body#main #conMenuList ul {width:100%; letter-spacing:-4px;}
+body#main #conMenuList ul li {display:inline-block; width:66%; overflow:hidden; font:13px/18px nanumgothic_bold; letter-spacing:-1px; background:#fff; border:1px solid #d8d8d8; border-radius:5px; margin:0 1.9% 2% 0; vertical-align:middle;box-sizing:border-box;}
+body#main #conMenuList ul li a {display:block; width:100%; position:relative; color:#666;}
+body#main #conMenuList ul li:nth-child(2n) {width:32%;margin-right:0 !important;line-height:15px;}
+body#main #conMenuList .gray{background:#f8f8f8;border:1px solid #e5e5e5;}
+body#main #conMenuList .gray a{color:#666 !important;height: 80px;}
+body#main #conMenuList .brown{background:#feefe1;border:1px solid #fae5d3; }
+body#main #conMenuList .brown a{color:#835c34 !important;height:105px !important;}
+body#main #conMenuList .brown01 a span{top:15% !important; font-size:22px;line-height:26px;}
+body#main #conMenuList .brown02 a span{top:15%;}
+body#main #conMenuList .blue{background:#e2f4ff;border:1px solid #dce8ef;width:32%;}
+body#main #conMenuList .blue.mgL{margin:0 0 2% 1.9%;}
+body#main #conMenuList .blue a{color:#48677b !important;vertical-align:middle;height:100px;font-size:12px;text-align:center;}
+body#main #conMenuList .blue a span{top:68% !important;margin-left:0 !important;}
+body#main #conMenuList .green{background:#e6efd6;border:1px solid #dce7c8;width:100% !important;}
+body#main #conMenuList .green a{color:#576b36 !important;font-size:16px !important;line-height:30px;text-align:center;height: 60px;}
+body#main #conMenuList .green a span{margin-left:-57px !important;padding-right:30px;width:auto;left:50%;top:25%;}
+body#main #conMenuList ul li a span {position:absolute; left:0; top:18%; display:block; width:93%;margin-left:7%;height:50%; }
+body#main #conMenuList ul li a:after {display:block; margin:0 auto; content:''; width:94%;height:100%; overflow:hidden; background:url(../images/main/icon_main_btn.png) no-repeat; background-size:46px auto;}
+body#main #conMenuList ul li.blue a span {position:absolute; left:0; top:10%; display:block; width:100%;margin-left:7%;height:50%; }
+body#main #conMenuList ul li:nth-of-type(1) a:after {background-position:right 35px;} /* 범용공인인증서 가져오기 */
+body#main #conMenuList ul li:nth-of-type(2) a:after {background-position:right -35px;} /* 범용공인 인증서 관리 */
+body#main #conMenuList ul li:nth-of-type(3) a:after {background-position:right -108px;} /* 전자계약서 작성 */
+body#main #conMenuList ul li:nth-of-type(4) a:after {background-position:right -202px;} /* 전자계약 도움말 */
+body#main #conMenuList ul li:nth-of-type(5) a:after {background-position:center -320px;} /* 대출신청 */
+body#main #conMenuList ul li:nth-of-type(6) a:after {background-position:center -402px;} /* 대출한도조회 */
+body#main #conMenuList ul li:nth-of-type(7) a:after {background-position:center -490px;} /* 나의대출정보 확인 */
+body#main #conMenuList ul li:nth-of-type(8) a:after {background-position:68% -578px;} /* 상담전화연결 */
+
+.process-info-tit{font:14px/26px nanumgothic_bold!important;margin-top:10px;}
+
+/* footer */
+#footer{background: #f8f8f8;padding:15px 4%;width:auto;font:8px/12px nanumgothic;letter-spacing:-1px;}
+.footer-util{overflow: hidden;margin-bottom:10px;}
+.footer-util li{float:left;font:9px/14px nanumgothic_bold!important;color:#666;margin:2px 0 2px 7px;padding-left:5px;background:url(../images/main/bg_footer_util_line.png) no-repeat left center;background-size:1px auto; }
+.footer-util li.no-line{margin-left:0 !important;padding-left:0;background:none !important;}
+.footer-big{font-size:14px;line-height:1.2em; color:#000;}
+.copy{color:#666;}

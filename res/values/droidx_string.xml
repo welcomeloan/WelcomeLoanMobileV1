@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 팝업 창의 버튼 문구 -->
+	<string name="alert_yes">확인</string>
+	<string name="alert_no">취소</string>
+	<!-- 설치되어 있는 Package에 대한 팝업 창의 문구 -->
+	<string name="uninstall_title">의심되는 프로그램 삭제</string>
+	<string name="uninstall_message">의심되는 프로그램이 발견되었습니다.\n삭제 하시겠습니까?\n(설치된 패키지: %@)</string>
+	<!-- sdcard의 파일에 대한 팝업 창의 문구 -->
+	<string name="remove_file_title">의심되는 파일 삭제</string>
+	<string name="remove_file_message">의심되는 파일이 발견되었습니다.\n삭제 하시겠습니까?\n(파일 경로: %@)</string>
+	<!-- Notification를 통하여 Droid-X 서비스 종료 팝업 창의 문구 -->
+	<string name="service_stop_title">Droid-X Antivirus v3.0</string>
+	<string name="service_stop_message">서비스를 종료하시겠습니까?</string>
+	<!-- DroidX단계별 String -->
+	<string name="droidx_step_0">Droid-X를 구동합니다.</string>
+	<string name="droidx_step_1">엔진/패턴 업데이트</string>
+	<string name="droidx_step_2">시스템 위변조 점검</string>
+	<string name="droidx_step_3">악성코드 및 불법앱 점검</string>
+</resources>

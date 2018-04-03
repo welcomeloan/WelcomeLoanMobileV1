@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/iv_dx_intro"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:background="@drawable/dx_image_dialog_intro" />
+
+</LinearLayout>

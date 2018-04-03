@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="inisafe_ok">확인</string>
+    <string name="inisafe_cancel">취소</string>
+    <string name="inisafe_delete">삭제</string>
+    
+    <string name="inisafe_password_title">인증서 비밀번호</string>
+    <string name="inisafe_password_export">비밀번호 : </string>
+    
+    <string name="inisafe_cert_save_fail">인증서 저장 실패</string>
+    <string name="inisafe_cert_save_fail_msg">가져온 인증서 저장에 실패하였습니다.</string>
+    
+    <string name="inisafe_delete_title">인증서 삭제</string>
+    <string name="inisafe_delete_msg">인증서를 삭제하시겠습니까?</string>
+    <string name="inisafe_delete_success">인증서를 정상적으로 삭제하였습니다.</string>
+    <string name="inisafe_delete_fail">인증서 삭제에 실패하였습니다.</string>
+    
+    <string name="inisafe_not_match_pw">비밀번호가 일치하지 않습니다.</string>
+    <string name="inisafe_not_match_newpw">새로운 비밀번호가 일치하지 않습니다.</string>
+    <string name="inisafe_change_pw_success">비밀번호를 변경하였습니다.</string>
+    <string name="inisafe_change_pw_fail">비밀번호 변경에 실패하였습니다.</string>
+    
+    <string name="inisafe_pw_min_error">비밀번호는 8자리 이상이어야 합니다.</string>
+    <string name="inisafe_pw_max_error">비밀번호는 20자리 이하여야 합니다.</string>
+    <string name="inisafe_pw_continues_letter">3회 이상 연속된 문자열을 사용할 수 없습니다.</string>
+    <string name="inisafe_pw_repeat_letter">3회 이상 동일문자를 사용할 수 없습니다.</string>
+    <string name="inisafe_pw_not_use_3_type">영문, 숫자, 특수문자 3가지 모두 포함되어야 합니다.</string>
+</resources>

@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: 'nanumgothic_bold';
+	font-style: normal;
+	font-weight: 700;
+	src: url(fonts/NanumGothic-Bold.eot);
+	src: url(fonts/NanumGothic-Bold.eot?#iefix) format('embedded-opentype'),
+	url(fonts/NanumGothic-Bold.woff) format('woff'),
+	url(fonts/NanumGothic-Bold.ttf) format('truetype');
+}

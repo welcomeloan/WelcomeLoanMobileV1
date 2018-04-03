@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>웰컴론 ㅣ 범용공인인증서 관리</title>
+<link rel="stylesheet" type="text/css" href="../css/common.css">
+<link rel="stylesheet" type="text/css" href="../css/welcome.css">
+<script type="text/javascript" src="../js/rainbowBr.min.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="../js/html5shiv.js"></script>
+<![endif]-->
+<script>
+	
+	var rbBasic	= rainbowBr.SFactory("Basic");
+	
+	// (안드로이드 전용) back key가 눌렸을 때 호출되는 function을 재정의한다.
+	rbBasic.setBackKeyPress(function () {
+		
+		if (confirm("앱을 종료하시겠습니까?")) {
+			
+			rbBasic.finish();
+			
+		}
+
+	});
+    
+</script>
+</head>
+<body class="sub">
+<div id="wrap">
+	<!-- content -->
+	<section id="contents">
+		<h1 class="hidden">내용</h1>		
+		<section class="width-pd2">
+			<h1 class="hidden">네트워크에 접속불가</h1>
+			<!-- 네트워크접속불가 안내 -->
+			<section class="network-error round-box2">
+				<h1>네트워크에 접속할 수 없습니다.</h1>
+				<p>네트워크 연결 상태를 확인해 주세요.</p>
+				<div class="btn-area txt-center mgT20">
+					<a href="javascript:rbBasic.goIntroPage();" class="btn-view" style="width: 120px;">홈으로 가기</a>
+				</div>
+			</section>
+			<!-- //네트워크접속불가 안내 -->
+		</section>
+	</section>
+	<!-- //content -->
+</div>
+<div id="mask"></div>
+</body>
+</html>

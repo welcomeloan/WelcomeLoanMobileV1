@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:keepScreenOn="true"
+                tools:context=".PreviewActivity">
+
+
+    <!-- 임의의 크기로 설정해도 내부적으로 match_parent 로 설정됨 -->
+    <com.pacesystem.lib.PaceCameraPreview
+        android:id="@+id/id_preview_view_camerapreview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000" />
+
+
+    <TextView
+        android:id="@+id/id_preview_textview_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_horizontal"/>
+
+    <ProgressBar
+        android:id="@+id/id_preview_progressbar"
+        android:indeterminateDrawable="@drawable/progress"
+        android:layout_height="100dp"
+        android:layout_width="100dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true" 
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:weightSum="3" >
+
+        <LinearLayout
+       		android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+            
+            <Button
+	            android:id="@+id/id_preview_button_flash"
+	            android:layout_width="60dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/ic_flash_off"  />
+            
+         </LinearLayout>
+        
+        
+        <LinearLayout
+       		android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+            
+            <Button
+	            android:id="@+id/id_preview_button_shutter"
+	            android:layout_width="60dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/btn_shutter_bg"  />
+            
+         </LinearLayout>
+
+        <View
+             android:layout_width="match_parent"
+	    	 android:layout_height="0dp"
+        	 android:layout_weight="1" />
+        
+        
+    </LinearLayout>
+    
+    
+    
+
+</RelativeLayout>

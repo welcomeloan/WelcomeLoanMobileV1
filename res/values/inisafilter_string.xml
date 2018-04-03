@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="inisafilter_cert_import_pw_desc">인증서 비밀번호를 입력해주세요.</string>
+</resources>

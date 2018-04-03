@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">웰컴론 모바일</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>    
+    <string name="notice">알림</string>
+    <string name="movie_error">동영상을 재생할 수 없습니다.</string>
+    <string name="ok">확인</string>
+    <string name="cancel">취소</string>
+    <string name="shortcut_create">바로가기를 생성하시겠습니까?</string>
+    <string name="yes">예</string>
+    <string name="no">아니오</string>
+    <string name="partner_script_id">5993cf926dd5062a31351d14</string>
+    <string name="api_secret_key">lCMRAkBvN8rR3x8eaQZpKx3ylw0/+J2bys689p9yo+/JgfVoZch4Fj29arN77Kcnn29DdZLste1rxgg50x0BNQ==</string>
+</resources>
