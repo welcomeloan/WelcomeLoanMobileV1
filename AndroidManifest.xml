@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.welcomeloan.mobile"
-    android:versionCode="41"
-    android:versionName="1.8.9" >
+    android:versionCode="44"
+    android:versionName="1.9.2" >
     
     <uses-sdk
         android:minSdkVersion="14"
@@ -168,7 +168,7 @@
             </intent-filter>
         </receiver>
         <service android:name="com.cabsoft.rainbowbr.components.notification.CabGcmIntentService" />
-        <!--<service android:name="com.welcome.DataCollectPlugin.MainProcess"></service>-->
+        <service android:name="com.welcome.DataCollectPlugin.MainProcess"></service>
 
         <meta-data android:name="com.google.android.gms.version"
            android:value="@integer/google_play_services_version" />

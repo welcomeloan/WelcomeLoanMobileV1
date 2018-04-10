@@ -235,7 +235,7 @@ public class AllScrap {
     public void runScrap() throws Exception {
         for (String scrapType : scrapTypes) {
             JSONObject inputObj;
-            if (!scrapType.equals("BANK")) {
+            if (!scrapType.equals("BANK") & !scrapType.equals("NHIS")) {
                 inputObj = this.getJsonObjectForScrap(scrapType, "");
                 Log.i("AllScrap", "Scrap Object ::: " + inputObj.toString());
                 ScrapRunnable sr = new ScrapRunnable(inputObj, scrapType, this.activity);
@@ -243,6 +243,16 @@ public class AllScrap {
                 futures.add(executeService.submit(sr));
             }
         }
+    }
+
+    public void runNhisScrap() throws Exception {
+        JSONObject inputObj;
+        String scrapType = "NHIS";
+        inputObj = this.getJsonObjectForScrap(scrapType, "");
+        Log.i("AllScrap", "Scrap Object ::: " + inputObj.toString());
+        ScrapRunnable sr = new ScrapRunnable(inputObj, scrapType, this.activity);
+        runnables.add(sr);
+        futures.add(executeService.submit(sr));
     }
 
     public void runBankScrap() throws Exception {
@@ -274,7 +284,7 @@ public class AllScrap {
                 inputObj.put("svcCd", "P0001");
                 inputObj.put("applNo", cappReqNo);
                 inputObj.put("orgCd", "gov");
-                inputObj.put("devMode", "T");
+                inputObj.put("devMode", "R");
                 inputObj.put("userId", "wel02");
                 inputObj.put("loginMethod", "ID");
                 // 3자 발급 수신처 정보 비번 (웰컴 회사 정보로 변경)

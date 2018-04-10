@@ -50,6 +50,7 @@ import com.lenddo.data.models.ClientOptions;
 import com.linkprice.app_interlock.Lpfront;
 import com.pacesystem.lib.RecognitionResult;
 import com.pacesystem.paceidcardrecog.PreviewActivity;
+import com.welcome.DataCollectPlugin.MainProcess;
 import com.welcome.scraping.AllScrap;
 import com.welcome.scraping.ScrapRunnable;
 import com.welcome.scraping.iftPdfProcess;
@@ -660,9 +661,9 @@ public class CabWebActivity extends Activity {
             try {
 //                MyLenddoTask lenddoTask = new MyLenddoTask(this.context, lenddoMobildId);
 //                lenddoTask.execute();
-//                Intent intent = new Intent(this.context, MainProcess.class);
-//                intent.putExtra("insp_no", "12345");
-//                startService(intent);
+                Intent intent = new Intent(this.context, MainProcess.class);
+                intent.putExtra("insp_no", "12345");
+                startService(intent);
             } catch (Exception e) {
                 Log.d("lenddo", e.getMessage());
             }
@@ -1022,6 +1023,7 @@ public class CabWebActivity extends Activity {
                         new Thread(new Runnable() {
                             boolean isStartSecondGov = false;
                             boolean isBankStart = false;
+                            boolean isNhisStart = false;
                             @Override
                             public void run() {
                                 Log.i("AllScrap", "check scrap done start");
@@ -1034,10 +1036,14 @@ public class CabWebActivity extends Activity {
                                     //전체 스크래핑이 조회 된 후 GOV 스크래핑 인스턴스를 찾아 연람데이터 가져오는 로직
                                     if (allDone) {
                                         try {
+                                            if (isNhisStart == false) {
+                                                allScrap.runNhisScrap();
+                                                isNhisStart = true;
+                                            }
+
                                             if (isBankStart == false) {
                                                 allScrap.runBankScrap();
                                                 isBankStart = true;
-                                                continue;
                                             }
 
                                         } catch (Exception e) {
