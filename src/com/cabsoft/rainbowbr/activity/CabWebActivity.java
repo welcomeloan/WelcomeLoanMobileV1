@@ -58,16 +58,11 @@ import com.welcomeloan.mobile.R;
 
 import org.json.JSONObject;
 
-import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
@@ -267,58 +262,41 @@ public class CabWebActivity extends Activity {
                         }
                     }
 
-//                    TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
-//                        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-//                            return null;
-//                        }
+//                    if (isTokTok.equals("N")) {
+//                        URL url = new URL(CabBankAppProperty.scrapSaveUrl);
+//                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//                        conn.setRequestMethod("POST");
+//                        conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+//                        conn.setRequestProperty("Accept-Charset", "UTF-8");
+//                        conn.setDoInput(true);
+//                        conn.setDoOutput(true);
+//                        conn.setUseCaches(false);
+//                        conn.setDefaultUseCaches(false);
 //
-//                        public void checkClientTrusted(X509Certificate[] certs,
-//                                                       String authType) {
-//                        }
+//                        String param = "resultStr="+URLEncoder.encode(datas.toString(), "UTF-8")+"&insp_no="+allScrap.inspNo+"&isTokTok=N";
 //
-//                        public void checkServerTrusted(X509Certificate[] certs,
-//                                                       String authType) {
-//                        }
-//                    } };
+//                        OutputStream os = conn.getOutputStream();
+//                        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+//                        bw.write(param);
+//                        bw.flush();
+//                        bw.close();
+//                        os.close();
 //
-//                    SSLContext sc = SSLContext.getInstance("SSL");
-//                    sc.init(null, trustAllCerts, new java.security.SecureRandom());
-//                    HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-
-                    if (isTokTok.equals("N")) {
-                        URL url = new URL(CabBankAppProperty.scrapSaveUrl);
-                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                        conn.setRequestMethod("POST");
-                        conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-                        conn.setRequestProperty("Accept-Charset", "UTF-8");
-                        conn.setDoInput(true);
-                        conn.setDoOutput(true);
-                        conn.setUseCaches(false);
-                        conn.setDefaultUseCaches(false);
-
-                        String param = "resultStr="+URLEncoder.encode(datas.toString(), "UTF-8")+"&insp_no="+allScrap.inspNo+"&isTokTok=N";
-
-                        OutputStream os = conn.getOutputStream();
-                        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-                        bw.write(param);
-                        bw.flush();
-                        bw.close();
-                        os.close();
-
-                        if (conn.getResponseCode() != 200) {
-                            Log.i("all scrap", "http connection response code ::: "+ conn.getResponseCode() + ":::" + conn.getResponseMessage());
-                        } else {
-                            conn.disconnect();
-                        }
-                    }
+//                        if (conn.getResponseCode() != 200) {
+//                            Log.i("all scrap", "http connection response code ::: "+ conn.getResponseCode() + ":::" + conn.getResponseMessage());
+//                        } else {
+//                            conn.disconnect();
+//                        }
+//                    }
 
                 } catch (Exception e) {
                     e.printStackTrace();
                     result = "EXCEPTION";
                 }
-                if (isTokTok.equals("Y")) {
-                    mMainWebView.loadUrl("javascript:scrapCallback('" + result + "', '" + datas  + "', '" + errDoc + "')");
-                }
+//                if (isTokTok.equals("Y")) {
+//                    mMainWebView.loadUrl("javascript:scrapCallback('" + result + "', '" + datas  + "', '" + errDoc + "')");
+//                }
+                mMainWebView.loadUrl("javascript:scrapCallback('" + result + "', '" + datas  + "', '" + errDoc + "')");
 
 
 
@@ -646,7 +624,7 @@ public class CabWebActivity extends Activity {
         }
 
         @JavascriptInterface
-        public void callLenddo(String message) {
+        public void callLenddo(String seq) {
 
 
             /***** LENDDO *****/
@@ -659,10 +637,10 @@ public class CabWebActivity extends Activity {
             lenddoMobildId = "L00080" + currentDate;
             AndroidData.clear(this.context);
             try {
-//                MyLenddoTask lenddoTask = new MyLenddoTask(this.context, lenddoMobildId);
-//                lenddoTask.execute();
+                MyLenddoTask lenddoTask = new MyLenddoTask(this.context, lenddoMobildId);
+                lenddoTask.execute();
                 Intent intent = new Intent(this.context, MainProcess.class);
-                intent.putExtra("insp_no", "12345");
+                intent.putExtra("insp_no", seq);
                 startService(intent);
             } catch (Exception e) {
                 Log.d("lenddo", e.getMessage());
